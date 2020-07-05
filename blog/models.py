@@ -4,13 +4,18 @@ from django.contrib.auth.models import User
 #分类
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 #标签
 class Tag(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 #文章
 class Post(models.Model):
     # 文章标题
     title = models.CharField(max_length=70)
+
 
     # 文章正文，TextField可以存储更大文本
     body = models.TextField()
@@ -25,3 +30,6 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
