@@ -30,7 +30,7 @@ class Post(models.Model):
     body = models.TextField('正文')
 
     # 这两个列分别表示文章的创建时间和最后一次修改时间，存储时间的字段用 DateTimeField 类型。
-    created_time = models.DateTimeField('创建时间', default=timezone.now)
+    created_time = models.DateTimeField('创建时间')
     modified_time = models.DateTimeField('修改时间')
 
     # 文章摘要，可以没有文章摘要，但默认情况下 CharField 要求我们必须存入数据，否则就会报错。
